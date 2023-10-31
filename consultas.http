@@ -1,0 +1,210 @@
+### Obtención de todos los usuarios
+GET http://localhost:1234/usuarios/
+
+### Obtencion de todos los productos
+GET http://localhost:1234/productos/
+
+
+### Obtención de un usuario específico
+GET http://localhost:1234/usuarios/1/
+
+### Obtención de un producto específico
+GET http://localhost:1234/productos/3/
+
+### Creación de un nuevo usuario, el body lleva el JSON con el objeto
+POST http://localhost:1234/usuarios/
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nombre": "Juan Pérez",
+    "edad": 28,
+    "email": "juan@example.com",
+    "telefono": "+1 123-456-7890"
+}
+
+### Agregado de un producto nuevo, el body lleva el json con el objeto
+POST http://localhost:1234/productos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
+{
+    "producto_id": 3,
+    "nombre": "Horno de microondas",
+    "precio": 129.99
+}
+
+
+### Actualización de un usuario, el body lleva solo el atributo a modificar
+PATCH http://localhost:1234/usuarios/1/
+Content-Type: application/json
+
+{
+    "nombre": "Nombre Actualizado"
+}
+
+### Borrado de un usuario
+DELETE http://localhost:1234/usuarios/1/
+
+### Actualización de un producto, el body lleva solo el atributo a modificar
+
+PATCH http://localhost:1234/productos/10
+Content-Type: application/json
+
+{
+    "nombre": "Mixer multiuso ACME PODEROSO"
+}
+
+### Borrado de un producto
+DELETE http://localhost:1234/productos/7
+
+
+### Request desde el formulario de logueo en el frontend
+POST http://localhost:1234/auth
+Content-Type: application/json
+
+    {
+        "usuario": "luisag",
+        "password": "password123"
+    }
+
+### Obtención de todos los proveedores
+GET http://localhost:1234/proveedores
+
+###Obtención de un proveedor específico
+GET http://localhost:1234/proveedores/1
+
+### Obtención de todos los clientes
+GET http://localhost:1234/clientes
+
+### Obtener un cliente específico
+GET http://localhost:1234/clientes/1
+
+### Obtener un administrador específico
+GET http://localhost:1234/administradores/1
+
+### Obtener todos los carritos
+GET http://localhost:1234/carritos
+
+### Obtener un carrito específico
+GET http://localhost:1234/carritos/1
+
+### Obtención de todas las ventas
+GET  http://localhost:1234/ventas
+
+### Obtención de una venta específica
+GET  http://localhost:1234/ventas/1
+
+### Crear un nuevo proveedor
+POST http://localhost:1234/proveedores
+Content-Type: application/json
+
+{
+  "nombre": "Carlos Sánchez",
+  "usuario": "carlossanchez3",
+  "contrasena": "securePwd"
+}
+
+### Crear un nuevo cliente
+POST http://localhost:1234/clientes
+Content-Type: application/json
+
+{
+  "nombre": "Nombre del Cliente",
+  "usuario": "usuario del Cliente",
+  "contrasena": "pass456789"
+}
+
+### Crear un nuevo administrador
+POST http://localhost:1234/administradores
+Content-Type: application/json
+
+{
+  "nombre": "Nombre del Administrador",
+  "email": "email@ejemplo.com",
+  "contrasena": "contraseña_segura"
+}
+
+### Crear un nuevo carrito
+POST http://localhost:1234/carritos
+Content-Type: application/json
+
+{
+  "monto": 123.45
+}
+
+### Crear una nueva venta
+POST http://localhost:1234/ventas
+Content-Type: application/json
+
+{
+  "carrito_id": 1,
+  "producto_id": 1,
+  "cantidad": 2,
+  "subtotal": 200.00
+}
+
+### Actualizar un proveedor
+PATCH http://localhost:1234/proveedores/1
+Content-Type: application/json
+
+{
+  "nombre": "Nuevo Nombre del Proveedor",
+  "usuario": "Nuevo username del Proveedor",
+  "conrasena": "54123456789"
+}
+
+### Actualizar un cliente
+PATCH http://localhost:1234/clientes/1
+Content-Type: application/json
+
+{
+  "nombre": "Nuevo Nombre del Cliente",
+  "usuario": "Nuevo username del Cliente",
+  "contrasena": "contra456789"
+}
+
+### Actualizar un administrador
+PATCH http://localhost:1234/administradores/1
+Content-Type: application/json
+
+{
+  "nombre": "Nuevo Nombre del Administrador",
+  "email": "email@ejemplo.com",
+  "contrasena": "contraseña123"
+}
+
+### Actualizar un carrito
+PATCH  http://localhost:1234/carritos/1
+Content-Type: application/json
+
+{
+  "monto": 123.45
+}
+
+### Actualizar una venta
+PATCH  http://localhost:1234/localhost:1234/ventas/1
+Content-Type: application/json
+
+{
+  "carrito_id": 1,
+  "producto_id": 1,
+  "cantidad": 2,
+  "subtotal": 200.00
+}
+
+### Eliminar un proveedor
+DELETE  http://localhost:1234/proveedores/1
+
+### Eliminar un cliente
+DELETE  http://localhost:1234/clientes/1
+
+### Eliminar un administrador
+DELETE  http://localhost:1234/administradores/1
+
+### Eliminar un carrito
+DELETE  http://localhost:1234/carritos/1
+
+### Eliminar una venta
+DELETE  http://localhost:1234/ventas/
+
