@@ -38,6 +38,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
 ### Actualización de un usuario, el body lleva solo el atributo a modificar
 PATCH http://localhost:1234/usuarios/1/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
     "nombre": "Nombre Actualizado"
@@ -45,11 +46,13 @@ Content-Type: application/json
 
 ### Borrado de un usuario
 DELETE http://localhost:1234/usuarios/1/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 ### Actualización de un producto, el body lleva solo el atributo a modificar
 
 PATCH http://localhost:1234/productos/10
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
     "nombre": "Mixer multiuso ACME PODEROSO"
@@ -57,6 +60,7 @@ Content-Type: application/json
 
 ### Borrado de un producto
 DELETE http://localhost:1234/productos/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 
 ### Request desde el formulario de logueo en el frontend
@@ -98,6 +102,7 @@ GET  http://localhost:1234/ventas/1
 ### Crear un nuevo proveedor
 POST http://localhost:1234/proveedores
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "nombre": "Carlos Sánchez",
@@ -108,6 +113,7 @@ Content-Type: application/json
 ### Crear un nuevo cliente
 POST http://localhost:1234/clientes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "nombre": "Nombre del Cliente",
@@ -118,6 +124,7 @@ Content-Type: application/json
 ### Crear un nuevo administrador
 POST http://localhost:1234/administradores
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "nombre": "Nombre del Administrador",
@@ -147,6 +154,7 @@ Content-Type: application/json
 ### Actualizar un proveedor
 PATCH http://localhost:1234/proveedores/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "nombre": "Nuevo Nombre del Proveedor",
@@ -157,6 +165,7 @@ Content-Type: application/json
 ### Actualizar un cliente
 PATCH http://localhost:1234/clientes/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "nombre": "Nuevo Nombre del Cliente",
@@ -167,6 +176,7 @@ Content-Type: application/json
 ### Actualizar un administrador
 PATCH http://localhost:1234/administradores/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "nombre": "Nuevo Nombre del Administrador",
