@@ -1,4 +1,4 @@
-// venta.js
+
 import { DataTypes } from 'sequelize';
 import db from '../db/connection.js';
 import Carrito from './carrito.js';
@@ -10,20 +10,6 @@ const Venta = db.define('Venta', {
         primaryKey: true,
         autoIncrement: true
     },
-    carrito_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: Carrito,
-            key: 'carrito_id'
-        }
-    },
-    producto_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: Producto,
-            key: 'producto_id'
-        }
-    },
     cantidad: {
         type: DataTypes.INTEGER
     },
@@ -34,8 +20,6 @@ const Venta = db.define('Venta', {
     timestamps: false,
     tableName: 'ventas'
 });
-
-Venta.belongsTo(Carrito, { foreignKey: 'carrito_id' });
-Venta.belongsTo(Producto, { foreignKey: 'producto_id' });
-
+Carrito.belongsToMany(Producto, { through: Venta, foreignKey: 'carrito_id' });
+Producto.belongsToMany(Carrito, { through: Venta, foreignKey: 'producto_id' });
 export default Venta;
