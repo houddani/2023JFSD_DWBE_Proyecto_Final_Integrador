@@ -120,6 +120,16 @@ Content-Type: application/json
   "cantidad": 2,
   "subtotal": 200.00
 }
+### Crear una nueva venta y agregar un producto a un carrito
+POST http://localhost:1234/ventas
+Content-Type: application/json
+
+{
+  "carrito_id": 1,
+  "producto_id": 1,
+  "cantidad": 2
+}
+
 
 ### Actualizar un proveedor
 PATCH http://localhost:1234/proveedores/1

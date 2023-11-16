@@ -8,7 +8,6 @@ import jwt from 'jsonwebtoken'
 
 import db from './db/connection.js'
 import Producto from './models/producto.js'
-import Usuario from './models/usuario.js'
 import Proveedor from './models/proveedor.js'
 import Cliente from './models/cliente.js'
 import Admin from './models/administrador.js'
@@ -227,7 +226,7 @@ app.get('/carritos', async (req, res) => {
 app.get('/carritos/:id', async (req, res) => {
     const carritoId = req.params.id;
     try {
-      const carrito = await Carrito.findByPk(carritoId);
+      const carrito = await Carrito.findByPk(carritoId, { include: Producto });
       if (carrito) {
         res.json(carrito);
       } else {
@@ -325,8 +324,15 @@ app.post('/carritos', async (req, res) => {
   });
 
 app.post('/ventas', async (req, res) => {
-    const { carrito_id, producto_id, cantidad, subtotal } = req.body;
+    const { carrito_id, producto_id, cantidad } = req.body;
     try {
+        let carrito = await Carrito.findByPk(carrito_id);
+        let producto = await Producto.findByPk(producto_id);
+
+        if (!carrito || !producto) {
+            return res.status(404).json({ message: 'Carrito o Producto no encontrado' });
+        }
+        await carrito.addProducto(producto, { through: { cantidad: cantidad } });
         const nuevaVenta = await Venta.create({ carrito_id, producto_id, cantidad, subtotal });
         res.status(201).json(nuevaVenta);
     } catch (error) {
