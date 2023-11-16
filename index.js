@@ -128,28 +128,6 @@ app.post('/auth', async (req, res) => {
     }
 });
 
-app.get('/usuarios', async (req, res) => {
-    try {
-        let allUsers = await Usuario.findAll()
-        res.status(200).json(allUsers)
-    } catch (error) {
-        res.status(204).json({"message": error})
-    }
-})
-
-app.get('/usuarios/:id', async (req, res) => {
-    try {
-        let userId = parseInt(req.params.id)
-        let user = await Usuario.findByPk(userId)
-        if (user) {
-            res.status(200).json(user)
-        } else {
-            res.status(404).json({message: 'Usuario no encontrado'})
-        }
-    } catch (error) {
-        res.status(204).json({message: error.message})
-    }
-})
 
 app.get('/proveedores', async (req, res) => {
     try {
@@ -293,14 +271,6 @@ function verificarAcceso(req, res, next){
     next()
 }
 
-app.post('/usuarios', async (req, res) => {
-    try {
-        let newUser = await Usuario.create(req.body)
-        res.status(201).json(newUser)
-    } catch (error) {
-        res.status(204).json({message: error.message})
-    }
-})
 
 app.post('/proveedores', async (req, res) => {
     try {
@@ -364,20 +334,6 @@ app.post('/ventas', async (req, res) => {
     }
 });
 
-app.patch('/usuarios/:id', async (req, res) => {
-    try {
-        let userId = parseInt(req.params.id)
-        let userToUpdate = await Usuario.findByPk(userId)
-        if (userToUpdate) {
-            await userToUpdate.update(req.body)
-            res.status(200).json({message: 'Usuario actualizado'})
-        } else {
-            res.status(404).json({message: 'Usuario no encontrado'})
-        }
-    } catch (error) {
-        res.status(204).json({message: error.message})
-    }
-})
 
 app.patch('/proveedores/:id', async (req, res) => {
     const proveedorId = req.params.id;
@@ -473,21 +429,6 @@ app.patch('/ventas/:id', async (req, res) => {
     }
 });
 
-
-app.delete('/usuarios/:id', async (req, res) => {
-    try {
-        let userId = parseInt(req.params.id)
-        let userToDelete = await Usuario.findByPk(userId)
-        if (userToDelete) {
-            await userToDelete.destroy()
-            res.status(200).json({message: 'Usuario eliminado'})
-        } else {
-            res.status(404).json({message: 'Usuario no encontrado'})
-        }
-    } catch (error) {
-        res.status(204).json({message: error.message})
-    }
-})
 
 app.delete('/proveedores/:id', async (req, res) => {
     const proveedorId = req.params.id;
