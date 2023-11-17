@@ -24,6 +24,9 @@ const exposedPort = 1234
 // Middleware para la validacion de los token recibidos
 function autenticacionDeToken(req, res, next){
     const headerAuthorization = req.headers['authorization']
+    if (!headerAuthorization) {
+        return res.status(401).json({message: 'No se proporcionó el encabezado de autorización'})
+    }
 
     const tokenRecibido = headerAuthorization.split(" ")[1]
 
@@ -46,6 +49,16 @@ function autenticacionDeToken(req, res, next){
 
     // Pasadas las validaciones
     req.user = payload
+
+    next()
+}
+
+function verificarAcceso(req, res, next){
+    const nivelAcceso = req.user.nivel
+
+    if (nivelAcceso !== 'administrador'){
+        return res.status(403).json({message: 'Acceso denegado'})
+    }
 
     next()
 }
@@ -128,7 +141,7 @@ app.post('/auth', async (req, res) => {
 });
 
 
-app.get('/proveedores', async (req, res) => {
+app.get('/proveedores', autenticacionDeToken, async (req, res) => {
     try {
         const allProveedores = await Proveedor.findAll();
         res.status(200).json(allProveedores);
@@ -137,7 +150,7 @@ app.get('/proveedores', async (req, res) => {
     }
 });
 
-app.get('/proveedores/:id', async (req, res) => {
+app.get('/proveedores/:id', autenticacionDeToken, async (req, res) => {
     try {
         const proveedorId = parseInt(req.params.id);
         const proveedor = await Proveedor.findByPk(proveedorId);
@@ -152,7 +165,7 @@ app.get('/proveedores/:id', async (req, res) => {
     }
 });
 
-app.get('/clientes', async (req, res) => {
+app.get('/clientes',autenticacionDeToken,  async (req, res) => {
     try {
         const allClientes = await Cliente.findAll();
         res.status(200).json(allClientes);
@@ -175,7 +188,7 @@ app.get('/clientes/:id', async (req, res) => {
     }
 });
 
-app.get('/administradores/:id', async (req, res) => {
+app.get('/administradores/:id', autenticacionDeToken, verificarAcceso,  async (req, res) => {
     try {
         const adminId = parseInt(req.params.id);
         const admin = await Admin.findByPk(adminId);
@@ -260,18 +273,8 @@ app.get('/ventas/:id', async (req, res) => {
     }
 });
 
-function verificarAcceso(req, res, next){
-    const nivelAcceso = req.user.nivel
 
-    if (nivelAcceso !== 'administrador'){
-        return res.status(403).json({message: 'Acceso denegado'})
-    }
-
-    next()
-}
-
-
-app.post('/proveedores', async (req, res) => {
+app.post('/proveedores', autenticacionDeToken, verificarAcceso, async (req, res) => {
     try {
         const nuevoProveedor = await Proveedor.create(req.body);
         res.status(201).json(nuevoProveedor);
@@ -280,7 +283,7 @@ app.post('/proveedores', async (req, res) => {
     }
 });
 
-app.post('/clientes', async (req, res) => {
+app.post('/clientes', autenticacionDeToken, verificarAcceso, async (req, res) => {
     try {
         const newCliente = await Cliente.create(req.body);
         res.status(201).json(newCliente);
@@ -289,7 +292,7 @@ app.post('/clientes', async (req, res) => {
     }
 });
 
-app.post('/administradores', autenticacionDeToken, async (req, res) => {
+app.post('/administradores', autenticacionDeToken, verificarAcceso,  async (req, res) => {
     try {
         const newAdmin = await Admin.create(req.body);
         res.status(201).json(newAdmin);
@@ -323,7 +326,7 @@ app.post('/carritos', async (req, res) => {
     }
   });
 
-app.post('/ventas', async (req, res) => {
+app.post('/ventas', autenticacionDeToken, verificarAcceso,  async (req, res) => {
     const { carrito_id, producto_id, cantidad } = req.body;
     try {
         let carrito = await Carrito.findByPk(carrito_id);
@@ -341,7 +344,7 @@ app.post('/ventas', async (req, res) => {
 });
 
 
-app.patch('/proveedores/:id', async (req, res) => {
+app.patch('/proveedores/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     const proveedorId = req.params.id;
     try {
         const proveedor = await Proveedor.findByPk(proveedorId);
@@ -355,7 +358,7 @@ app.patch('/proveedores/:id', async (req, res) => {
     }
 });
 
-app.patch('/clientes/:id', async (req, res) => {
+app.patch('/clientes/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     try {
         const clienteId = parseInt(req.params.id);
         const clienteToUpdate = await Cliente.findByPk(clienteId);
@@ -370,7 +373,7 @@ app.patch('/clientes/:id', async (req, res) => {
     }
 });
 
-app.patch('/administradores/:id', autenticacionDeToken, async (req, res) => {
+app.patch('/administradores/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     try {
         const adminId = parseInt(req.params.id);
         const adminToUpdate = await Admin.findByPk(adminId);
@@ -403,7 +406,7 @@ app.patch('/productos/:id', autenticacionDeToken, verificarAcceso, async (req, r
     }
 })
 
-app.patch('/carritos/:id', async (req, res) => {
+app.patch('/carritos/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     const carritoId = req.params.id;
     const { monto } = req.body;
     try {
@@ -419,7 +422,7 @@ app.patch('/carritos/:id', async (req, res) => {
     }
   });
 
-app.patch('/ventas/:id', async (req, res) => {
+app.patch('/ventas/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     const { id } = req.params;
     const { carrito_id, producto_id, cantidad, subtotal } = req.body;
     try {
@@ -436,7 +439,7 @@ app.patch('/ventas/:id', async (req, res) => {
 });
 
 
-app.delete('/proveedores/:id', async (req, res) => {
+app.delete('/proveedores/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     const proveedorId = req.params.id;
     try {
         const proveedor = await Proveedor.findByPk(proveedorId);
@@ -450,7 +453,7 @@ app.delete('/proveedores/:id', async (req, res) => {
     }
 });
 
-app.delete('/clientes/:id', async (req, res) => {
+app.delete('/clientes/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     try {
         const clienteId = parseInt(req.params.id);
         const clienteToDelete = await Cliente.findByPk(clienteId);
@@ -465,7 +468,7 @@ app.delete('/clientes/:id', async (req, res) => {
     }
 });
 
-app.delete('/administradores/:id', autenticacionDeToken, async (req, res) => {
+app.delete('/administradores/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     try {
         const adminId = parseInt(req.params.id);
         const adminToDelete = await Admin.findByPk(adminId);
@@ -497,7 +500,7 @@ app.delete('/productos/:id', autenticacionDeToken, verificarAcceso, async (req, 
     }
 })
 
-app.delete('/carritos/:id', async (req, res) => {
+app.delete('/carritos/:id', autenticacionDeToken, verificarAcceso,  async (req, res) => {
     const carritoId = req.params.id;
     try {
       const carrito = await Carrito.findByPk(carritoId);
@@ -512,7 +515,7 @@ app.delete('/carritos/:id', async (req, res) => {
     }
   });
 
-app.delete('/ventas/:id', async (req, res) => {
+app.delete('/ventas/:id', autenticacionDeToken, verificarAcceso, async (req, res) => {
     const { id } = req.params;
     try {
         const venta = await Venta.findByPk(id);

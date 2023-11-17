@@ -1,9 +1,11 @@
-
 ### Obtencion de todos los productos
 GET http://localhost:1234/productos/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Obtención de un producto específico
 GET http://localhost:1234/productos/3/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 
 ### Agregado de un producto nuevo, el body lleva el json con el objeto
@@ -19,7 +21,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
 
 
 ### Actualización de un producto, el body lleva solo el atributo a modificar
-
 PATCH http://localhost:1234/productos/10
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
@@ -27,6 +28,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
 {
     "nombre": "Mixer multiuso ACME PODEROSO"
 }
+
 
 ### Borrado de un producto
 DELETE http://localhost:1234/productos/7
@@ -42,32 +44,49 @@ Content-Type: application/json
         "password": "password123"
     }
 
+
 ### Obtención de todos los proveedores
 GET http://localhost:1234/proveedores
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ###Obtención de un proveedor específico
 GET http://localhost:1234/proveedores/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Obtención de todos los clientes
 GET http://localhost:1234/clientes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Obtener un cliente específico
 GET http://localhost:1234/clientes/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Obtener un administrador específico
 GET http://localhost:1234/administradores/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Obtener todos los carritos
 GET http://localhost:1234/carritos
 
+
 ### Obtener un carrito específico
 GET http://localhost:1234/carritos/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Obtención de todas las ventas
 GET  http://localhost:1234/ventas
 
+
 ### Obtención de una venta específica
 GET  http://localhost:1234/ventas/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Crear un nuevo proveedor
 POST http://localhost:1234/proveedores
@@ -80,6 +99,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
   "contrasena": "securePwd"
 }
 
+
 ### Crear un nuevo cliente
 POST http://localhost:1234/clientes
 Content-Type: application/json
@@ -90,6 +110,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
   "usuario": "usuario del Cliente",
   "contrasena": "pass456789"
 }
+
 
 ### Crear un nuevo administrador
 POST http://localhost:1234/administradores
@@ -102,6 +123,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
   "contrasena": "contraseña_segura"
 }
 
+
 ### Crear un nuevo carrito
 POST http://localhost:1234/carritos
 Content-Type: application/json
@@ -110,9 +132,11 @@ Content-Type: application/json
   "monto": 123.45
 }
 
+
 ### Crear una nueva venta
 POST http://localhost:1234/ventas
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "carrito_id": 1,
@@ -120,9 +144,12 @@ Content-Type: application/json
   "cantidad": 2,
   "subtotal": 200.00
 }
+
+
 ### Crear una nueva venta y agregar un producto a un carrito
 POST http://localhost:1234/ventas
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "carrito_id": 1,
@@ -142,6 +169,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
   "conrasena": "54123456789"
 }
 
+
 ### Actualizar un cliente
 PATCH http://localhost:1234/clientes/1
 Content-Type: application/json
@@ -152,6 +180,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
   "usuario": "Nuevo username del Cliente",
   "contrasena": "contra456789"
 }
+
 
 ### Actualizar un administrador
 PATCH http://localhost:1234/administradores/1
@@ -164,17 +193,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc
   "contrasena": "contraseña123"
 }
 
+
 ### Actualizar un carrito
 PATCH  http://localhost:1234/carritos/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "monto": 123.45
 }
 
+
 ### Actualizar una venta
-PATCH  http://localhost:1234/localhost:1234/ventas/1
+PATCH  http://localhost:1234/ventas/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
 {
   "carrito_id": 1,
@@ -183,18 +216,28 @@ Content-Type: application/json
   "subtotal": 200.00
 }
 
+
 ### Eliminar un proveedor
 DELETE  http://localhost:1234/proveedores/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Eliminar un cliente
 DELETE  http://localhost:1234/clientes/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Eliminar un administrador
 DELETE  http://localhost:1234/administradores/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Eliminar un carrito
 DELETE  http://localhost:1234/carritos/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
+
 
 ### Eliminar una venta
-DELETE  http://localhost:1234/ventas/
+DELETE  http://localhost:1234/ventas/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibHVpc2FnIiwibml2ZWwiOjEsImV4cCI6MTY5ODc4NjgxMDIxNCwiaWF0IjoxNjk4Nzg2NjMwfQ.d3kisGLKGFyk8GrqoS62d04WFZhT6MZrnKw58Ha8vUc
 
